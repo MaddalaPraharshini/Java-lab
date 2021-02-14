@@ -1,29 +1,37 @@
 package com;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.*;
+/*
+ * Create a method which accepts an integer array, 
+ * reverse the numbers in the array
+ * and returns the resulting array in sorted order
+*/
 
 public class Exercise3 {
-
-	private static final String CONSONANTS = "bcdfghjklmnpqrstvwxyz";
 	
-
-	private static String altrString(String input) {
-		char[] chars = input.toLowerCase().toCharArray();
-	    for (int i = 0; i < chars.length; i++) {
-	        int idx = CONSONANTS.indexOf(chars[i]);
-	        if (idx != -1)
-	            chars[i] = CONSONANTS.charAt((idx + 1) % CONSONANTS.length());
-	    }
-	    return new String(chars);
-
+	public static int getsorted(int[] inputArray) {
+		int arraySize=inputArray.length;
+		System.out.println(arraySize);
+		int[] outputArray = new int[inputArray.length];
+		for(int a=0;a<arraySize;a++) {
+			StringBuffer bufferedString = new StringBuffer();
+			bufferedString .append(Integer.toString(inputArray[a]));
+			bufferedString .reverse();
+			 
+			outputArray[a]=Integer.parseInt(bufferedString .toString());
+		}
+		Arrays.sort(outputArray);
+		for(int j:outputArray) {
+			System.out.print(j +" ");
+		}
+		
+		return 0;
 	}
-	
 
 	public static void main(String[] args) {
-		System.out.println(altrString("java"));
-
-	
+		int a[] = {12,15,81,10,41,27};
+		
+		getsorted(a);
 		
 	}
+
 }
